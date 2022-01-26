@@ -11,15 +11,16 @@
         $post_summary= $_POST['post_summary'];
         $achievement= $_POST['achievement'];
         $born= $_POST['born'];
-        // $post_comment_count= 4; summery achievement born
+        // $post_comment_count= 4; summery achievement born birth_place
         $post_status= $_POST['post_status'];
+        $birth_place= $_POST['birth_place'];
         // $post_born= $_POST['born'];
         move_uploaded_file($post_image_temp,"../images/$post_image");
 
         $query = "INSERT INTO posts(post_category_id,post_title,post_author,post_date,post_image,
-                  post_content,post_tags,post_status,post_summary,achievement,born) VALUES({$post_category_id},
+                  post_content,post_tags,post_status,post_summary,achievement,born,birth_place) VALUES({$post_category_id},
                  '{$post_title}','{$post_author}',now(),'{$post_image}','{$post_content}','{$post_tags}',
-                 '{$post_status}','{$post_summary}',{$achievement},{$born})";
+                 '{$post_status}','{$post_summary}',{$achievement},{$born},{$birth_place})";
         $create_post_query = mysqli_query($connection,$query);
         $the_post_id = mysqli_insert_id($connection);
 
@@ -86,7 +87,10 @@
         } );
     </script>
 
-
+    <div class="form-group">
+        <label for="birth_place">Birth Place</label>
+        <input type="text" class="form-control" name="birth_place">
+    </div>
     <div class="form-group">
         <label for="born">Born</label>
         <input type="text" class="form-control" name="born">
