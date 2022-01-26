@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.35)
 # Database: fyp
-# Generation Time: 2022-01-26 6:27:02 pm +0000
+# Generation Time: 2022-01-26 7:16:51 pm +0000
 # ************************************************************
 
 
@@ -81,19 +81,19 @@ DROP TABLE IF EXISTS `posts`;
 
 CREATE TABLE `posts` (
   `post_id` int(11) NOT NULL AUTO_INCREMENT,
-  `post_category_id` int(11) NOT NULL,
-  `post_title` varchar(191) NOT NULL DEFAULT '',
-  `post_author` varchar(191) NOT NULL DEFAULT '',
-  `post_date` date NOT NULL,
-  `post_image` text NOT NULL,
-  `post_content` text NOT NULL,
-  `post_tags` varchar(191) NOT NULL DEFAULT '',
-  `post_comment_count` int(11) NOT NULL DEFAULT '0',
-  `post_status` varchar(191) NOT NULL DEFAULT 'draft',
+  `post_category_id` int(11) DEFAULT NULL,
+  `post_title` varchar(191) DEFAULT '',
+  `post_author` varchar(191) DEFAULT '',
+  `post_date` date DEFAULT NULL,
+  `post_image` text,
+  `post_content` text,
+  `post_tags` varchar(191) DEFAULT '',
+  `post_comment_count` int(11) DEFAULT '0',
+  `post_status` varchar(191) DEFAULT 'draft',
   `born` varchar(191) DEFAULT NULL,
   `post_summary` text,
   `achievement` text,
-  `birth_place` varchar(191) DEFAULT NULL,
+  `birth_place` text,
   PRIMARY KEY (`post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -102,17 +102,17 @@ LOCK TABLES `posts` WRITE;
 
 INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`, `post_date`, `post_image`, `post_content`, `post_tags`, `post_comment_count`, `post_status`, `born`, `post_summary`, `achievement`, `birth_place`)
 VALUES
-	(12,20,'Fakhreddin Mousavi','Iran','2022-01-26','amoli.jpg','<p>Ayatollah Fakhraddin Mousavi Naneh Karani (Persian: ‌فخرالدین موسوی ننه‌کرانی; 1930 – 18 September 2021) was an Iranian judge and politician.</p>','asdsdasd',3,'published','1930','Ayatollah Fakhraddin Mousavi Naneh Karani (Persian: ‌فخرالدین موسوی ننه‌کرانی; 1930 – 18 September 2021) was an Iranian judge and politician.\r\n\r\nMousavi was born in Ardabil. He was a member of the first, third and fifth Islamic Consultative Assembly from the electorate of Ardabil, Nir, Namin and Sareyn. He was a member of 5th Assembly of Experts from Ardabil Province electorate. He was supported by the People\'s Experts in the election.',NULL,NULL),
-	(15,25,'Hassan Hassanzadeh Amoli','Iran','2022-01-25','amoli.jpg','','adasdad',0,'published','12 February 1929','Hassan Hasanzadeh Amoli (Persian: حسن حسن‌زاده آملی, 12 February 1929 – 25 September 2021) was an Iranian Shi\'ite theologian known for his mystical tendencies and Islamic philosophy. He was among clerics who have overcome the traditional opposing to teaching philosophy courses at Shi\'ite seminaries. He wrote many books in philosophy, mysticism, mathematics, astronomy, Persian and Arabic literature.He interpreted the Islamic philosophical tradition in a similar way to Mulla Sadra, which is a reconciliation of religion, reason and mysticism.His books include Sharh fusus al-hikam, Tashih nahj al-balagha, Insan dar \'urf-i \'irfan, Tashih kalila wa dimna.\r\n\r\nHe died on Saturday, 25 September 2021, at the age of 92.Iran\'s Supreme Leader Ayatollah Khamenei offered prayers on his body. Hassanzadeh Amoli was elected as a \"Immortal figures of Iran\" in 2003.\r\n\r\nHasanzadeh-Amoli was father-in-law of Iranian conservative politician Baqer Larijani.',NULL,NULL),
-	(16,20,'Ali Gomaa','Egypt','2022-01-25','goma.jpeg','<p>asdassssssssssssssss</p>','asdddddddddddddddd',1,'published','3 March 1952','Ali Gomaa (Arabic: علي جمعة, Egyptian Arabic: [ˈʕæli ˈɡomʕæ]) is an Egyptian Islamic scholar, Jurist, and public figure who has taken a number of controversial political stances. He specializes in Islamic Legal Theory. He follows the Shafi`i school of Islamic jurisprudence and the Ash\'ari school of tenets of faith. Gomaa is a Sufi. Gomaa is also a supporter of the 2013 Military Coup.',NULL,NULL),
-	(19,25,'asdsd','adsd','2022-01-19','DSC_0844.jpg','<p>asdsd</p>','asdsd',0,'published',NULL,NULL,NULL,NULL),
-	(21,25,'asssssssssss','dddddddddddddd','2022-01-19','DSC_0708.jpg','<p>asdddddddd</p>','aaaaaaaaaaa',0,'published',NULL,NULL,NULL,NULL),
-	(22,20,'aaaaaaaaaaaaa','wwwwwwwwwwwwww','2022-01-19','DSC_1410.jpg','<p>sassssssssss</p>','aaaaaaaaaaaaaaaa',0,'published',NULL,NULL,NULL,NULL),
-	(23,20,'aaaaaaaaaaaaa','ssssssssssss','2022-01-19','DSC_0817.jpg','<p>aaaaaaaaaaaaa</p>','assssssssssssss',0,'draft',NULL,NULL,NULL,NULL),
-	(24,24,'Ali','Iran','2022-01-25','ali.jpg','<p>Khamenei is married to Mansoureh Khojasteh Bagherzadeh, with whom he has six children; four sons (Mostafa, Mojtaba, Masoud, and Meysam) and two daughters (Boshra and Hoda).</p>','',1,'published','19 April 1939','Sayyid Ali Hosseini Khamenei(Persian: سید علی حسینی خامنه‌ای, pronounced [ʔæˈliː hosejˈniː xɒːmeneˈʔiː] (audio speaker iconlisten); born 19 April 1939) is a Twelver Shia Marja\' and the second and current supreme leader of Iran, in office since 1989.  He was previously the third president of Iran from 1981 to 1989. Khamenei is the longest serving head of state in the Middle East, as well as the second-longest serving Iranian leader of the last century, after Shah Mohammad Reza Pahlavi.',NULL,NULL),
-	(25,24,'sdfasd','dsfa','2022-01-26','cky5i61dv0008zx3vhfh303ry.jpeg','<p>Pagination mean fetching and displaying your data into multiple pages rather than single page. You have already seen this on various blogs, even on my blog homepage, you can see that I am only displaying 4 to 5 blog posts and older posts are accessible via pagination.</p><h2><strong>How to&nbsp;Create Simple Pagination Using PHP and MySQLi</strong></h2><p>Basically we need to fetch limited records on each page, this mean we need to limit the number of records to be fetched. For this purpose,&nbsp;MySQL provides a LIMIT&nbsp;clause, it simply fetch the limited number of records. I have created a sample table named `pagination_table`&nbsp;which you can download from the download button and import into your database. Lets see how&nbsp;LIMIT&nbsp;clause works, just run the following query</p>','xvdfg',0,'published','19 April 1939','new',NULL,NULL),
-	(26,20,'my title ','kamran','2022-01-26','ckxr163n9009qimxuaqxhazpp.jpeg','','Tags',0,'published','2012','Summery',NULL,NULL),
-	(28,20,'2022-01-28','2022-01-28','2022-01-26','cky5i61dv0008zx3vhfh303ry.jpeg','<p>2022-01-28</p>','2022-01-28',0,'published','1991','2022-01-28','1993',NULL);
+	(12,20,'Fakhreddin Mousavi','Iran','2022-01-27','','<p>Ayatollah Fakhraddin Mousavi Naneh Karani (Persian: ‌فخرالدین موسوی ننه‌کرانی; 1930 – 18 September 2021) was an Iranian judge and politician.</p>','asdsdasd',3,'published','1930','Ayatollah Fakhraddin Mousavi Naneh Karani (Persian: ‌فخرالدین موسوی ننه‌کرانی; 1930 – 18 September 2021) was an Iranian judge and politician.\r\n\r\nMousavi was born in Ardabil. He was a member of the first, third and fifth Islamic Consultative Assembly from the electorate of Ardabil, Nir, Namin and Sareyn. He was a member of 5th Assembly of Experts from Ardabil Province electorate. He was supported by the People\'s Experts in the election.',NULL,'Iran'),
+	(15,25,'Hassan Hassanzadeh Amoli','Iran','2022-01-25','amoli.jpg','','adasdad',0,'published','12 February 1929','Hassan Hasanzadeh Amoli (Persian: حسن حسن‌زاده آملی, 12 February 1929 – 25 September 2021) was an Iranian Shi\'ite theologian known for his mystical tendencies and Islamic philosophy. He was among clerics who have overcome the traditional opposing to teaching philosophy courses at Shi\'ite seminaries. He wrote many books in philosophy, mysticism, mathematics, astronomy, Persian and Arabic literature.He interpreted the Islamic philosophical tradition in a similar way to Mulla Sadra, which is a reconciliation of religion, reason and mysticism.His books include Sharh fusus al-hikam, Tashih nahj al-balagha, Insan dar \'urf-i \'irfan, Tashih kalila wa dimna.\r\n\r\nHe died on Saturday, 25 September 2021, at the age of 92.Iran\'s Supreme Leader Ayatollah Khamenei offered prayers on his body. Hassanzadeh Amoli was elected as a \"Immortal figures of Iran\" in 2003.\r\n\r\nHasanzadeh-Amoli was father-in-law of Iranian conservative politician Baqer Larijani.',NULL,'sud'),
+	(16,20,'Ali Gomaa','Egypt','2022-01-25','goma.jpeg','<p>asdassssssssssssssss</p>','asdddddddddddddddd',1,'published','3 March 1952','Ali Gomaa (Arabic: علي جمعة, Egyptian Arabic: [ˈʕæli ˈɡomʕæ]) is an Egyptian Islamic scholar, Jurist, and public figure who has taken a number of controversial political stances. He specializes in Islamic Legal Theory. He follows the Shafi`i school of Islamic jurisprudence and the Ash\'ari school of tenets of faith. Gomaa is a Sufi. Gomaa is also a supporter of the 2013 Military Coup.',NULL,'Iran'),
+	(19,25,'asdsd','adsd','2022-01-19','DSC_0844.jpg','<p>asdsd</p>','asdsd',0,'published',NULL,NULL,NULL,'Ned'),
+	(21,25,'asssssssssss','dddddddddddddd','2022-01-19','DSC_0708.jpg','<p>asdddddddd</p>','aaaaaaaaaaa',0,'published',NULL,NULL,NULL,'Iran'),
+	(22,20,'aaaaaaaaaaaaa','wwwwwwwwwwwwww','2022-01-19','DSC_1410.jpg','<p>sassssssssss</p>','aaaaaaaaaaaaaaaa',0,'published',NULL,NULL,NULL,'India'),
+	(23,20,'aaaaaaaaaaaaa','ssssssssssss','2022-01-27','','<p>aaaaaaaaaaaaa</p>','assssssssssssss',0,'draft','Iran','       dsadf     ','      sdfad    ','  sdfasd sdfadsfa '),
+	(24,24,'Ali','Iran','2022-01-25','ali.jpg','<p>Khamenei is married to Mansoureh Khojasteh Bagherzadeh, with whom he has six children; four sons (Mostafa, Mojtaba, Masoud, and Meysam) and two daughters (Boshra and Hoda).</p>','',1,'published','19 April 1939','Sayyid Ali Hosseini Khamenei(Persian: سید علی حسینی خامنه‌ای, pronounced [ʔæˈliː hosejˈniː xɒːmeneˈʔiː] (audio speaker iconlisten); born 19 April 1939) is a Twelver Shia Marja\' and the second and current supreme leader of Iran, in office since 1989.  He was previously the third president of Iran from 1981 to 1989. Khamenei is the longest serving head of state in the Middle East, as well as the second-longest serving Iranian leader of the last century, after Shah Mohammad Reza Pahlavi.',NULL,'Iran'),
+	(25,24,'sdfasd','dsfa','2022-01-26','cky5i61dv0008zx3vhfh303ry.jpeg','<p>Pagination mean fetching and displaying your data into multiple pages rather than single page. You have already seen this on various blogs, even on my blog homepage, you can see that I am only displaying 4 to 5 blog posts and older posts are accessible via pagination.</p><h2><strong>How to&nbsp;Create Simple Pagination Using PHP and MySQLi</strong></h2><p>Basically we need to fetch limited records on each page, this mean we need to limit the number of records to be fetched. For this purpose,&nbsp;MySQL provides a LIMIT&nbsp;clause, it simply fetch the limited number of records. I have created a sample table named `pagination_table`&nbsp;which you can download from the download button and import into your database. Lets see how&nbsp;LIMIT&nbsp;clause works, just run the following query</p>','xvdfg',0,'published','19 April 1939','new',NULL,'Bangladesh'),
+	(26,20,'my title ','kamran','2022-01-26','ckxr163n9009qimxuaqxhazpp.jpeg','','Tags',0,'published','2012','Summery',NULL,'Iran'),
+	(28,20,'2022-01-28','2022-01-28','2022-01-26','cky5i61dv0008zx3vhfh303ry.jpeg','<p>2022-01-28</p>','2022-01-28',0,'published','1991','2022-01-28','1993','Bangladesh');
 
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
