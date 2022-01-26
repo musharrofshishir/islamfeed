@@ -12,7 +12,9 @@ body {
 html {
     scroll-behavior: smooth;
 }
-
+.active a{
+    color: red;
+}
 a {
     transition: .2s all ease;
     -webkit-transition: .2s all ease;

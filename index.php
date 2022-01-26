@@ -44,14 +44,96 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row post-container">
-                
-                            <!-- Blog Entries Column -->
-                
-                            <?php
+                        <div class="row post-container" id="#post_category">
                 
                             
-                            $query = "SELECT * FROM posts";
+                            <form method="POST" action="?page=1#post_category"
+                           >
+                                <div class="form-group">
+                                <select name="post_category" id="post_category" onchange="this.form.submit()">
+                                    <?php
+                                        $selected = '';
+                                        if(isset($_POST["post_category"])){
+                                            $selected = $_POST["post_category"];
+                                        }
+                                        $query = "SELECT * FROM category"; 
+                                        $update_categories = mysqli_query($connection,$query);
+                                        if($selected==''){
+                                            echo "<option value='' selected>All</option>";
+                                        }
+                                        else
+                                        echo "<option value=''>All</option>";
+                                        // querycheck($update_categories);
+                                        while($row = mysqli_fetch_assoc($update_categories)){
+                                            $cat_id = $row['cat_id'];
+                                            $cat_title = $row['cat_title'];
+                                            if($selected==$cat_id){
+                                                echo "<option value='$cat_id' selected>{$cat_title}</option>";
+                                            }
+                                            else{
+                                                echo "<option value='$cat_id'>{$cat_title}</option>";
+
+                                            }
+
+                                            
+                                        }
+                                    ?>
+
+
+                                </select>
+                            </div>
+                         </form>
+                        
+   
+
+
+                            <?php
+                            // code for pagination 
+                              if(isset($_GET["page"])){
+                                $page_no =$_GET["page"];
+                              }
+                              else if(isset($_POST["page"])){
+                                $page_no =$_POST["page"];
+                              }
+                              else{
+                                $page_no =1;
+                              }
+                            $page_size = 2;
+                            $offset = ($page_no-1) *  $page_size;
+                            $previous_page = $page_no - 1;
+                            $next_page = $page_no + 1;
+                            $post_cat ='';
+                            $query1 = "SELECT COUNT(post_id) FROM posts where post_status='published'";
+                            if(isset($_POST["post_category"]) && $_POST["post_category"]!=''){
+                                $query1 .= " and post_category_id =".$_POST["post_category"];
+                                $post_cat = $_POST["post_category"];
+                            }
+                           else if(isset($_GET["post_category"]) && $_GET["post_category"]!=''){
+                                $query1 .= " and  post_category_id =".$_GET["post_category"];
+                                $post_cat = $_GET["post_category"];
+                            }
+                            
+
+                            $result_db = mysqli_query($connection, $query1);
+                            if(!empty($result_db)){
+                                $row_db = mysqli_fetch_row($result_db);  
+                                $total_records = $row_db[0]; 
+                            }
+                            else $total_records =0;
+                            // print_r($total_records );
+                            $total_pages = ceil($total_records /  $page_size ); 
+
+                              // code for pagination 
+
+                            // Feathing data from database 
+                            
+                            $query = "SELECT * FROM posts where post_status='published'";
+
+                            if(isset($_POST["post_category"]) && $_POST["post_category"]!=''){
+                                $query .= " and post_category_id =".$_POST["post_category"];
+                            }
+                            $query .=" LIMIT ".$offset.",".$page_size ;
+                            // print_r($query );
                             $select_all_posts = mysqli_query($connection, $query);
                 
                             while ($row = mysqli_fetch_assoc($select_all_posts)) {
@@ -97,9 +179,25 @@
                                     </div>
                 
                 
+
                             <?php }
-                            } ?>
+                            } 
+                            
+                            $pagLink = "<ul class='pagination'>";  
+                            for ($i=1; $i<=$total_pages; $i++) {
+                                        $pagLink .= "<li id='$i' class='page-item'><a class='page-link' href='?page=".$i."&post_category=".$post_cat."#post_category"."'>".$i."</a></li>";	
+                            }
+                            echo $pagLink . "</ul>"; 
+                            ?>
+
+                            <script>
+                              document.getElementById(<?php echo $page_no; ?>).className ="active";
+                            </script>
+
                 
+
+                                 
+                        
                 
                             <!-- Blog Sidebar Widgets Column -->
                 

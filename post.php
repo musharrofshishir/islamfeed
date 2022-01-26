@@ -1,4 +1,5 @@
 <?php include "includes/header.php";
+   
 ?>
 
 <body>
@@ -14,13 +15,16 @@
                 <div class="row">
                     <?php
                     
+                    
                         if (isset($_GET['p_id'])) {
                             $post_id = $_GET['p_id'];
                         }
                         $query = "SELECT * FROM posts WHERE post_id = $post_id";
                         $select_all_posts = mysqli_query($connection, $query);
-
-                        while ($row = mysqli_fetch_assoc($select_all_posts)) {
+                        
+                        
+                    if(!empty($select_all_posts )){
+                        while ($row = mysqli_fetch_assoc($select_all_posts) ) {
                             $post_title = $row['post_title'];
                             $post_author = $row['post_author'];
                             $post_date = $row['post_date'];
@@ -85,7 +89,12 @@
                             <p> <?php echo $post_content ?></p> -->
                         </div>
     
-                    <?php } ?>
+                    <?php }  } 
+                    else{
+                  
+                    ?>
+                    <h1>No result found!</h1>
+                    <?php }?>
                     </div>
                     <div class="post-box">
                             <!-- First Blog Post -->

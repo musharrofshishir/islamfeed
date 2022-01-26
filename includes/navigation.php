@@ -29,7 +29,7 @@
                 }
             }
             else{
-                echo "<li> <a class='btn btn-dark' href='/FYYP/admin-login.php'>Admin Login</a> </li>";
+                echo "<li> <a class='btn btn-dark' href='/admin-login.php'>Admin Login</a> </li>";
             }
         ?>
       </ul>
