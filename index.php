@@ -145,6 +145,8 @@
                                 $post_content = substr($row['post_content'], 0, 300);
                                 $post_status = $row['post_status'];
                                 $post_summary = $row['post_summary'];
+                                $birth_place = $row['birth_place'];
+                                
                                 $born = $row['born'];
                 
                                 if ($post_status == 'published') {
@@ -165,7 +167,7 @@
                                             <div class="card-body _post_body ">
                                                 <h3 class="card-title _post_title"> <a href="post.php?p_id=<?php echo $post_id; ?>"><?php echo $post_title ?></a></h3>
                                                 <p class="lead card-text">
-                                                    Place: <span> <?php echo $post_author ?> </span>
+                                                    Place: <span> <?php echo $birth_place ?> </span>
                                                 </p>
                                                 <!-- <p><span class="glyphicon glyphicon-time"></span> Posted on <?php // echo $post_date ?></p> -->
                 

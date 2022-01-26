@@ -11,9 +11,9 @@
         $post_summary= $_POST['post_summary'];
         $achievement= $_POST['achievement'];
         $born= $_POST['born'];
+        $birth_place= $_POST['birth_place'];
         // $post_comment_count= 4; summery achievement born birth_place
         $post_status= $_POST['post_status'];
-        $birth_place= $_POST['birth_place'];
         // $post_born= $_POST['born'];
         move_uploaded_file($post_image_temp,"../images/$post_image");
 

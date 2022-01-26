@@ -17,6 +17,10 @@
         $post_tags = $row['post_tags'];
         $post_comment_count = $row['post_comment_count'];
         $post_status = $row['post_status'];
+        $born = $row['born'];
+        $post_summary = $row['post_summary'];
+        $achievement = $row['achievement'];
+        $birth_place = $row['birth_place'];
     }
 
     if(isset($_POST['update_post'])){
@@ -28,6 +32,12 @@
         $post_content= $_POST['post_content'];
         $post_tags= $_POST['post_tags'];
         $post_status= $_POST['post_status'];
+        $born= $_POST['born'];
+        
+        $achievement= $_POST['achievement'];
+        
+        $post_summary= $_POST['post_summary'];
+        $birth_place= $_POST['birth_place'];
         move_uploaded_file($post_image_temp,"../images/$post_image");
 
         $query = "UPDATE posts SET 
@@ -38,7 +48,11 @@
                   post_image='{$post_image}', 
                   post_content='{$post_content}',
                   post_tags='{$post_tags}', 
-                  post_status='{$post_status}'
+                  post_status='{$post_status}',
+                  born='{$born}',
+                  achievement='{$achievement}',
+                  birth_place='{$birth_place}',
+                  post_summary='{$post_summary}'
                   WHERE post_id = {$the_post_id}";
         $update_post_query = mysqli_query($connection,$query);
         querycheck($update_post_query);
@@ -99,6 +113,24 @@
         } );
     </script>
 
+    <div class="form-group">
+        <label for="post_summary">Summary</label>
+        <textarea class="form-control" name="post_summary" id="edit" col="30" rows="10"> <?php echo $post_summary; ?> </textarea> 
+    </div>
+    <div class="form-group">
+        <label for="born">Born</label>
+        <textarea class="form-control" name="born" id="edit" col="30" rows="10"> <?php echo $born; ?> </textarea> 
+    </div>
+    <div class="form-group">
+        <label for="achievement">Achievement</label>
+        <textarea class="form-control" name="achievement" id="edit" col="30" rows="10"> <?php echo $achievement; ?> </textarea> 
+    </div>
+    <div class="form-group">
+        <label for="birth_place">Birth place</label>
+        <textarea class="form-control" name="birth_place" id="edit" col="30" rows="10"> <?php echo $birth_place; ?> </textarea> 
+    </div>
+    
+    
     <div class="form-group">
         <select name="post_status" id="">
             <option value='<?php echo $post_status;?>'><?php echo $post_status;?></option>

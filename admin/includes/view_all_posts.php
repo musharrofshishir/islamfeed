@@ -48,6 +48,10 @@
                                 <th>Date</th>
                                 <th>Image</th>
                                 <th>Content</th>
+                                <th>Born</th>
+                                <th>Summary</th>
+                                <th>Achievement</th>
+                                <th>Birth place</th>
                                 <th>Tags</th>
                                 <th>Comments</th>
                                 <th>Status</th>
@@ -60,8 +64,10 @@
                                 <?php
                                     $query = "SELECT * FROM posts";
                                     $select_posts = mysqli_query($connection,$query);
+                                   
 
                                     while($row = mysqli_fetch_assoc($select_posts)){
+                                        
                                         $post_id = $row['post_id'];
                                         $post_category_id = $row['post_category_id'];
                                         $post_title = $row['post_title'];
@@ -72,6 +78,10 @@
                                         $post_tags = $row['post_tags'];
                                         $post_comment_count = $row['post_comment_count'];
                                         $post_status = $row['post_status'];
+                                        $born = $row['born'];
+                                        $post_summary = $row['post_summary'];
+                                        $achievement = $row['achievement'];
+                                        $birth_place = $row['birth_place'];
 
                                             echo "<tr>";
                                             ?>
@@ -94,6 +104,10 @@
                                                 echo "<td>$post_date</td>";
                                                 echo "<td><img width='100' src='../images/$post_image' alt='image'></td>";
                                                 echo "<td>$post_content</td>";
+                                                echo "<td>$born</td>";
+                                                echo "<td>$post_summary</td>";
+                                                echo "<td>$achievement</td>";
+                                                echo "<td>$birth_place</td>";
                                                 echo "<td>$post_tags</td>";
                                                 echo "<td>$post_comment_count</td>";
                                                 echo "<td>$post_status</td>";

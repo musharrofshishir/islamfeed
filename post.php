@@ -31,6 +31,7 @@
                             $post_image = $row['post_image'];
                             $post_content = $row['post_content'];
                             $post_summary = $row['post_summary'];
+                            $birth_place = $row['birth_place'];
                             $born = $row['born'];
 
                     ?>
@@ -42,7 +43,7 @@
                             <div class="_single_post_content">
                                 <h3 class="_single_post_content_title"><?php echo $post_title ?></h3>
                                 <p class="_single_post_content_txt"><em>Born: <?php echo $born ?> </em> </p>
-                                <p class="_single_post_content_txt"><em>Place: <?php echo $post_author ?> </em> </p>
+                                <p class="_single_post_content_txt"><em>Place: <?php echo $birth_place ?> </em> </p>
                             </div>
                             <div class="_single_post_content">
                                 <h5 class=""><em>Summary</em></h5>
