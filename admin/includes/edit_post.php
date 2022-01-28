@@ -33,12 +33,19 @@
         $post_tags= $_POST['post_tags'];
         $post_status= $_POST['post_status'];
         $born= $_POST['born'];
-        
         $achievement= $_POST['achievement'];
-        
         $post_summary= $_POST['post_summary'];
         $birth_place= $_POST['birth_place'];
         move_uploaded_file($post_image_temp,"../images/$post_image");
+
+        $post_content = mysqli_real_escape_string($connection,$post_content);
+        $post_tags = mysqli_real_escape_string($connection,$post_tags);
+        $achievement = mysqli_real_escape_string($connection,$achievement);
+        $born = mysqli_real_escape_string($connection,$born);
+        $birth_place = mysqli_real_escape_string($connection,$birth_place);
+        $post_title = mysqli_real_escape_string($connection,$post_title);
+        $post_author = mysqli_real_escape_string($connection,$post_author);
+        $post_summary = mysqli_real_escape_string($connection,$post_summary);
 
         $query = "UPDATE posts SET 
                   post_category_id='{$post_category_id}',

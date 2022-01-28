@@ -2,6 +2,7 @@
 ?>
 
 <body>
+<?php  include "includes/navigation.php"; ?>
 <!-- Login -->
 <div class="_login_wrapper">
     <div class="_login_wrap">

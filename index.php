@@ -98,7 +98,7 @@
                               else{
                                 $page_no =1;
                               }
-                            $page_size = 2;
+                            $page_size = 6;
                             $offset = ($page_no-1) *  $page_size;
                             $previous_page = $page_no - 1;
                             $next_page = $page_no + 1;
@@ -185,7 +185,7 @@
                             <?php }
                             } 
                             
-                            $pagLink = "<ul class='pagination'>";  
+                            $pagLink = "<ul class='pagination _pagination_wrap'>";  
                             for ($i=1; $i<=$total_pages; $i++) {
                                         $pagLink .= "<li id='$i' class='page-item'><a class='page-link' href='?page=".$i."&post_category=".$post_cat."#post_category"."'>".$i."</a></li>";	
                             }

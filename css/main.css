@@ -12,9 +12,11 @@ body {
 html {
     scroll-behavior: smooth;
 }
-.active a{
+
+.active a {
     color: red;
 }
+
 a {
     transition: .2s all ease;
     -webkit-transition: .2s all ease;
@@ -215,6 +217,12 @@ a {
 
 }
 
+._pagination_wrap {
+    justify-content: center;
+    margin: 30px 0 10px;
+    padding: 10px 0 4px;
+}
+
 /* Post Page */
 
 /* Post */
@@ -257,7 +265,7 @@ a {
 
 ._single_post_right_title {
     font-family: Poppins;
-    font-size: 28px;
+    font-size: 32px;
 }
 
 ._single_post_right_txt {
@@ -266,12 +274,45 @@ a {
     font-weight: 400;
 }
 
+._comment_box {
+    flex-direction: column;
+}
+
+.media {
+    margin: 10px 0;
+}
+
+._user_ic {
+    background-color: #121212;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+}
+
+._user_ic i {
+    font-size: 20px;
+    color: #fff !important;
+
+}
+
+.media-body {
+    margin: 10px 0;
+}
+
 /* Single Post */
 /* Search */
 ._search_title {
     font-family: Inter;
     color: #fff;
     margin-bottom: 12px;
+    display: block;
 }
 
 .form-control {
@@ -282,7 +323,26 @@ a {
     -o-border-radius: 6px !important;
 }
 
+._search_input {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom-right-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 /* Search */
+/* Search Page */
+._search_page_wrapper {
+    padding: 100px 0;
+}
+
+._search_page_wrapper ._search_page_wrap ._search_title {
+    color: #121212;
+}
+
+/* Search Page */
 /* Footer */
 
 footer {
@@ -347,6 +407,12 @@ footer {
 }
 
 /* Login */
+/* Register */
+._register_wrapper {
+    padding: 150px 0;
+}
+
+/* Register */
 @media (max-width: 767px) {
     .post-card {
         height: 100%;

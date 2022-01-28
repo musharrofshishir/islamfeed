@@ -12,15 +12,23 @@
         $achievement= $_POST['achievement'];
         $born= $_POST['born'];
         $birth_place= $_POST['birth_place'];
-        // $post_comment_count= 4; summery achievement born birth_place
         $post_status= $_POST['post_status'];
-        // $post_born= $_POST['born'];
         move_uploaded_file($post_image_temp,"../images/$post_image");
 
-        $query = "INSERT INTO posts(post_category_id,post_title,post_author,post_date,post_image,
-                  post_content,post_tags,post_status,post_summary,achievement,born,birth_place) VALUES({$post_category_id},
-                 '{$post_title}','{$post_author}',now(),'{$post_image}','{$post_content}','{$post_tags}',
-                 '{$post_status}','{$post_summary}',{$achievement},{$born},{$birth_place})";
+        $post_content = mysqli_real_escape_string($connection,$post_content);
+        $post_tags = mysqli_real_escape_string($connection,$post_tags);
+        $achievement = mysqli_real_escape_string($connection,$achievement);
+        $born = mysqli_real_escape_string($connection,$born);
+        $birth_place = mysqli_real_escape_string($connection,$birth_place);
+        $post_title = mysqli_real_escape_string($connection,$post_title);
+        $post_author = mysqli_real_escape_string($connection,$post_author);
+        $post_summary = mysqli_real_escape_string($connection,$post_summary);
+
+        $query = "INSERT INTO posts(post_category_id,post_title,post_author,post_image,
+            post_content,post_tags,post_status,post_summary,achievement,born,birth_place) VALUES({$post_category_id},
+        '{$post_title}','{$post_author}','{$post_image}','{$post_content}','{$post_tags}',
+        '{$post_status}','{$post_summary}','{$achievement}','{$born}','{$birth_place}')";
+
         $create_post_query = mysqli_query($connection,$query);
         $the_post_id = mysqli_insert_id($connection);
 
